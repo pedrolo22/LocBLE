@@ -283,7 +283,9 @@ def main():
             generar_fingerprint(returnedList[1])
             data.append(returnedList[1])
             time_now=time.time()
-
+        
+        if(fingerprint==[]):
+            fingerprint.append([user_id,0,0,0,0])
         client.publish("ble_scan", str(fingerprint), qos=1)
         data=[]
         n_fingerprint+=1;
